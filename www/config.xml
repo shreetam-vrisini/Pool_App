@@ -105,14 +105,14 @@
 	<access origin="*://*.fbcdn.net/*" subdomains="true"  />
 	<access origin="*://*.akamaihd.net/*" subdomains="true"  />		-->
 	
-	<access origin="http://projects.vrisini.com/*" />
-    <access origin="https://connect.facebook.net/*" />
-    <access origin="https://static.ak.facebook.com/*" />
-    <access origin="https://fbstatic-a.akamaihd.net/*"  />
-    <access origin="https://m.facebook.com/*" />
-	<access origin="https://graph.facebook.com/*" />
-	<access origin="https://api.facebook.com/*" />
-	<access origin="https://fbcdn.net/*" />
-	<access origin="https://*.akamaihd.net/*" />
+	<access origin="http://projects.vrisini.com" />
+    <access origin="https://connect.facebook.net" />
+    <access origin="https://static.ak.facebook.com" />
+    <access origin="https://fbstatic-a.akamaihd.net"  />
+    <access origin="https://m.facebook.com" />
+	<access origin="https://graph.facebook.com" />
+	<access origin="https://api.facebook.com" />
+	<access origin="https://fbcdn.net" />
+	<access origin="https://*.akamaihd.net" />
 	<access origin="*" />
 </widget>
