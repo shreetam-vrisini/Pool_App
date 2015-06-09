@@ -34,7 +34,7 @@
 				// window.plugin.notification.local is now available
 				document.location = 'http://projects.vrisini.com/pradict';
 				
-				cordova.plugins.notification.local.on("schedule", function() 
+				cordova.plugins.notification.local.schedule(function() 
 				{
 					alert("scheduled: ");
 					var package_name = "com.projects.vrisini";
@@ -43,7 +43,7 @@
 					window.plugin.notification.local.add({
 					  date        : delay_5sec,
 					  title       : "Test Local Notification", 
-					  message     : data,
+					  message     : "data",
 					  repeat      : "daily",
 					//  sound       : 'android.resource://' + package_name + '/raw/beep',
 					  badge       : 0,
