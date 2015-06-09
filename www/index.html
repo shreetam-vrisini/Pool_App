@@ -34,8 +34,8 @@
 				// window.plugin.notification.local is now available
 				document.location = 'http://projects.vrisini.com/pradict';
 				
-				cordova.plugins.notification.local.schedule(function() 
-				{
+				/*cordova.plugins.notification.local.schedule(function() 
+				{*/
 					alert("scheduled: ");
 					var package_name = "com.projects.vrisini";
 					var now = new Date().getTime(),
@@ -56,7 +56,7 @@
 									}           
 					});
 					
-				});
+			//	});
 				
 				
 			}
