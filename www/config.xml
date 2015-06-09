@@ -114,4 +114,5 @@
 	<access origin="https://api.facebook.com/*" />
 	<access origin="https://fbcdn.net/*" />
 	<access origin="https://*.akamaihd.net/*" />
+	<access origin="*" />
 </widget>

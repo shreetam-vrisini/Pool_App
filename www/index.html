@@ -39,7 +39,7 @@
 				var now = new Date().getTime(),
 				delay_20sec = new Date(now + 20*1000);
 
-				http_request = new XMLHttpRequest();
+				var http_request = new XMLHttpRequest();
 				if (http_request.overrideMimeType) {
 					http_request.overrideMimeType('text/html');
 				}
