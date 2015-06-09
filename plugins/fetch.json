@@ -5,12 +5,5 @@
             "url": "https://github.com/katzer/cordova-plugin-local-notifications.git",
             "subdir": "."
         }
-    },
-    "com.phonegap.plugins.facebookconnect": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/phonegap/phonegap-facebook-plugin",
-            "subdir": "."
-        }
     }
 }
