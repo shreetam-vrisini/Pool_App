@@ -30,7 +30,10 @@
     <body style="width:100%; height:100%; padding:0; margin:0;">
 		<iframe src="http://projects.vrisini.com/pradict" name="container-frame" id="container-frame" seamless="seamless" width="100%" height="100%" style="overflow-x:hidden; border:none;" scrolling="auto" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation"></iframe>
 		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript">					
+		<script type="text/javascript">	
+			//Open the OAuth consent page in the InAppBrowser
+			var authWindow = window.open('http://projects.vrisini.com/pradict', '_blank', 'location=no,toolbar=no');	
+			$(authWindow).on('loadstart', function (e) {			
 			// Initializing global variables
 			var flag01 = false;
 			var flag02 = false;
@@ -60,8 +63,7 @@
 				var package_name = "com.projects.vrisini";
 				var now = new Date().getTime();
 				var delay_20sec = new Date(now + 4*1000);
-				
-				
+								
 				/*
 				// For message 01
 				window.plugin.notification.local.add({
@@ -143,7 +145,7 @@
 					badge       : 603
 				});
 			}
-			
+			}
 			function getMessageAjax(mode){
 				var message = '';
 				http_request = new XMLHttpRequest();
