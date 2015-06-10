@@ -61,10 +61,16 @@
 				var now = new Date().getTime();
 				var delay_20sec = new Date(now + 4*1000);
 				
-				
-				
 				// For message 01
-				window.plugin.notification.local.add({
+				window.plugin.notification.local.schedule({
+					id          : 601,
+					title       : title01, 
+					text     	: message01,
+					firstAt     : delay_20sec,
+					every      	: "minute",
+					badge       : 601
+				}, getMessageAjax('x'));
+				/*window.plugin.notification.local.add({
 					date        : delay_20sec,
 					title       : title01, 
 					message     : message01,
@@ -78,10 +84,18 @@
 					background  : function(notificationId){
 						alert("Background Notification");
 					}           
-				}, getMessageAjax('x'));
+				}, getMessageAjax('x'));*/
 				
 				// For message 02
-				window.plugin.notification.local.add({
+				window.plugin.notification.local.schedule({
+					id          : 602,
+					title       : title02, 
+					text     	: message02,
+					firstAt     : delay_20sec,
+					every      	: "minute",
+					badge       : 602
+				}, getMessageAjax('x'));
+				/*window.plugin.notification.local.add({
 					date        : delay_20sec,
 					title       : title02, 
 					message     : message02,
@@ -95,10 +109,18 @@
 					background  : function(notificationId){
 						alert("Background Notification");
 					}           
-				}, getMessageAjax('y'));
+				}, getMessageAjax('y'));*/
 				
 				// For message 03
-				window.plugin.notification.local.add({
+				window.plugin.notification.local.schedule({
+					id          : 603,
+					title       : title03, 
+					text     	: message03,
+					firstAt     : delay_20sec,
+					every      	: "minute",
+					badge       : 603
+				}, getMessageAjax('x'));
+				/*window.plugin.notification.local.add({
 					date        : delay_20sec,
 					title       : title03, 
 					message     : message03,
@@ -112,7 +134,8 @@
 					background  : function(notificationId){
 						alert("Background Notification");
 					}           
-				}, getMessageAjax('z'));
+				}, getMessageAjax('z'));*/
+				
 				
 				/* Scheduling push notifications */
 				// For message 01	
