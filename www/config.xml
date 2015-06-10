@@ -91,27 +91,7 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
       
-<!--    <access origin="*://*.projects.vrisini.com/*" subdomains="true"  />
-    <access origin="*://*.connect.facebook.net/*" subdomains="true"  />
-    <access origin="*://*.static.ak.facebook.com/*" subdomains="true"  />
-    <access origin="*://*.fbstatic-a.akamaihd.net/*" subdomains="true"  />
-    <access origin="*://*.m.facebook.com/*" subdomains="true"  />
-	<access origin="*://*.graph.facebook.com/*" subdomains="true"  />
-	<access origin="*://*.api.facebook.com/*" subdomains="true"  />
-	<access origin="*://*.fbcdn.net/*" subdomains="true"  />
-	<access origin="*://*.akamaihd.net/*" subdomains="true"  />		-->
-	
-	<access origin="http://projects.vrisini.com/*" />
-    <access origin="https://connect.facebook.net/*" />
-    <access origin="https://static.ak.facebook.com/*" />
-    <access origin="https://fbstatic-a.akamaihd.net/*"  />
-    <access origin="https://m.facebook.com/*" />
-	<access origin="https://graph.facebook.com/*" />
-	<access origin="https://api.facebook.com/*" />
-	<access origin="https://fbcdn.net/*" />
-	<access origin="https://*.akamaihd.net/*" />	
-	
-	<allow-navigation href="http://projects.vrisini.com/*" />
-	
-	<allow-intent href="http://projects.vrisini.com/*" />
+	<access origin="*" />	
+	<allow-navigation href="*" />	
+	<allow-intent href="*" />
 </widget>
