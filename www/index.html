@@ -23,71 +23,119 @@
     <head>
 		<meta name="viewport" content="target-densitydpi=device-dpi" />
 		<script src="cordova.js"></script>	
-		<script src="local-notification.js"></script>
+		<script src="local-notification.js"></script>	
     </head>
     
     <body style="width:100%; height:100%;">
-       <script type="text/javascript" src="js/index.js"></script>    		
-		<script type="text/javascript">	
-			document.location = 'http://projects.vrisini.com/pradict';		
-	/*		document.addEventListener("deviceready", onDeviceReady, false);	
-				
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">					
+			// Initializing global variables
+			var flag01 = false;
+			var flag02 = false;
+			var flag03 = false;
+			var title01 = '';
+			var title02 = '';
+			var title03 = '';
+			var message01 = '';
+			var message02 = '';
+			var message03 = '';
+			
+			document.addEventListener("deviceready", onDeviceReady, false);
+			$.support.cors=true;
+			$.mobile.allowCrossDomainPages = true;			
+			
 			function onDeviceReady() {
-				// window.plugin.notification.local is now available
-				document.location = 'http://projects.vrisini.com/pradict';
-
+				// Initializing local variables
 				var package_name = "com.projects.vrisini";
-				var now = new Date().getTime(),
-				delay_20sec = new Date(now + 20*1000);
-
-				var http_request = new XMLHttpRequest();
-				if (http_request.overrideMimeType) {
-					http_request.overrideMimeType('text/html');
-				}
-				var parameters = 'mode=message';				    
-				http_request.open('POST', 'index.php?eID=pushMessage', true); // SET method to GET or POST according to form method specified
-				http_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				http_request.setRequestHeader("Content-length", parameters.length);
-				http_request.setRequestHeader("Connection", "close");
-				http_request.send(parameters);
+				var now = new Date().getTime();
+				var delay_20sec = new Date(now + 4*1000);
 				
+				// For message 01
+				window.plugin.notification.local.add({
+					date        : delay_20sec,
+					title       : title01, 
+					message     : message01,
+					repeat      : "minutely",
+					//  sound       : 'android.resource://' + package_name + '/raw/beep',
+					badge       : 601,
+					id          : 601,
+					foreground  : function(notificationId){
+						alert("Foreground Notification");
+					},
+					background  : function(notificationId){
+						alert("Background Notification");
+					}           
+				}, getMessageAjax('x'));
+				
+				// For message 02
+				window.plugin.notification.local.add({
+					date        : delay_20sec,
+					title       : title02, 
+					message     : message02,
+					repeat      : "minutely",
+					//  sound       : 'android.resource://' + package_name + '/raw/beep',
+					badge       : 602,
+					id          : 602,
+					foreground  : function(notificationId){
+						alert("Foreground Notification");
+					},
+					background  : function(notificationId){
+						alert("Background Notification");
+					}           
+				}, getMessageAjax('y'));
+				
+				// For message 03
+				window.plugin.notification.local.add({
+					date        : delay_20sec,
+					title       : title03, 
+					message     : message03,
+					repeat      : "minutely",
+					//  sound       : 'android.resource://' + package_name + '/raw/beep',
+					badge       : 603,
+					id          : 603,
+					foreground  : function(notificationId){
+						alert("Foreground Notification");
+					},
+					background  : function(notificationId){
+						alert("Background Notification");
+					}           
+				}, getMessageAjax('z'));
+				
+				/* Scheduling push notifications */
+				// For message 01	
+			}
+			
+			function getMessageAjax(mode){
+				http_request = new XMLHttpRequest();
+				var parameters = 'mode='+mode;				    
+				http_request.open('POST', 'http://projects.vrisini.com/pradict/index.php?eID=pushMessage', true);
+				http_request.setRequestHeader("Content-length", parameters.length);					
 				http_request.onreadystatechange = function(){
 					if (http_request.readyState == 4) {
-						var returnVal = http_request.responseText;
-						alert("TestVal:: "+returnVal);
+						var returnVal = JSON.parse(http_request.responseText);
+						if(mode=='x'){
+							if(returnVal.flag === 1) flag01 = true;
+							else flag01 = false;
+							title01 = returnVal.title;
+							message01 = returnVal.text;
+						}
+						if(mode=='y'){
+							if(returnVal.flag === 1) flag02 = true;
+							else flag02 = false;
+							title02 = returnVal.title;
+							message02 = returnVal.text;
+						}
+						if(mode=='z'){
+							if(returnVal.flag === 1) flag03 = true;
+							else flag03 = false;
+							title03 = returnVal.title;
+							message03 = returnVal.text;
+							document.location = 'http://projects.vrisini.com/pradict';
+						}
 					}
 				}
-				/*
-				window.plugin.notification.local.add({
-				  date        : delay_20sec,
-				  title       : "Test Local Notification", 
-				  message     : data,
-				  repeat      : "daily",
-				//  sound       : 'android.resource://' + package_name + '/raw/beep',
-				  badge       : 0,
-				  id          : 666,
-				  foreground  : function(notificationId){
-									alert("Foreground Notification");
-								},
-				  background  : function(notificationId){
-									alert("Background Notification");
-								}           
-			  });
-			*/
-		
-			/*   var now = new Date().getTime(),
-			  _5_sec_from_now = new Date(now + 5*1000);
-			  
-			 window.plugin.notification.local.schedule({
-				  id          : 666,
-				  title       : "Test Local Notification",
-				  text    	  : "This is a new local notification.",
-				  every		  : "day",
-				  firstAt	  : _5_sec_from_now,
-				  data		  : "null"				            
-			  });
-		}*/
-			 	
-		</script>	
+				http_request.send(parameters);
+			}
+		</script>
     </body>
 </html>

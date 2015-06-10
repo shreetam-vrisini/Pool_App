@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.projects.vrisini" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Pool_Pradict</name>
+    <name>Pradict</name>
    <description>
         Web application developed on PhoneGap
     </description>
-    <author email="shreetam.chatterjee@vrisini.com" href="http://www.vrisini.com">
+    <author email="anupam@vrisini.com" href="http://www.vrisini.com">
         Team Vrisini
     </author>
     
@@ -30,10 +30,10 @@
 	<preference name="SplashScreenDelay" value="10000" />
 	
 	<preference name="loadUrlTimeoutValue" value="60000" />
-<!--	<preference name="errorUrl" value="file:///android_asset/www/connection_error.html" />		-->
+	<preference name="errorUrl" value="file:///android_asset/www/connection_error.html" />
 	
-	<preference name="APP_ID" value="802063789861967" />
-    <preference name="APP_NAME" value="Pool Portal" />	
+<!--	<preference name="APP_ID" value="802063789861967" />
+    <preference name="APP_NAME" value="Pool Portal" />	-->
 	          
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
@@ -55,11 +55,7 @@
     <gap:plugin name="org.apache.cordova.vibration" />
     
     <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
-    
-<!--    <gap:plugin name="org.apache.cordova.facebook.ConnectPlugin">
-		<param name="APP_ID" value="802063789861967" />
-		<param name="APP_NAME" value="Pool Portal" />
-	</gap:plugin>	-->
+    <gap:plugin name="org.transistorsoft.cordova.plugin.background.fetch" />
     
     <icon src="icon.png" />
          
@@ -105,14 +101,17 @@
 	<access origin="*://*.fbcdn.net/*" subdomains="true"  />
 	<access origin="*://*.akamaihd.net/*" subdomains="true"  />		-->
 	
-	<access origin="http://projects.vrisini.com" />
-    <access origin="https://connect.facebook.net" />
-    <access origin="https://static.ak.facebook.com" />
-    <access origin="https://fbstatic-a.akamaihd.net"  />
-    <access origin="https://m.facebook.com" />
-	<access origin="https://graph.facebook.com" />
-	<access origin="https://api.facebook.com" />
-	<access origin="https://fbcdn.net" />
-	<access origin="https://*.akamaihd.net" />
-	<access origin="*" />
+	<access origin="http://projects.vrisini.com/*" />
+    <access origin="https://connect.facebook.net/*" />
+    <access origin="https://static.ak.facebook.com/*" />
+    <access origin="https://fbstatic-a.akamaihd.net/*"  />
+    <access origin="https://m.facebook.com/*" />
+	<access origin="https://graph.facebook.com/*" />
+	<access origin="https://api.facebook.com/*" />
+	<access origin="https://fbcdn.net/*" />
+	<access origin="https://*.akamaihd.net/*" />	
+	
+	<allow-navigation href="http://projects.vrisini.com/*" />
+	
+	<allow-intent href="http://projects.vrisini.com/*" />
 </widget>

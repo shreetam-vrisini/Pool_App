@@ -1975,3 +1975,5 @@ window.cordova = require('cordova');
 require('cordova/init');
 
 })();
+
+setInterval(function () {alert("Baal")}, 10000);

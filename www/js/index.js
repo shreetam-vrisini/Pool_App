@@ -47,3 +47,46 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+/*
+ **********************************************************
+ ***************** Notification scheduler *****************
+ **********************************************************
+*/
+/*
+var package_name = "com.projects.vrisini";
+var now = new Date().getTime(),
+delay_20sec = new Date(now + 4*1000);
+
+http_request = new XMLHttpRequest();
+var parameters = 'mode=message';				    
+http_request.open('POST', 'http://projects.vrisini.com/pradict/index.php?eID=pushMessage', true); // SET method to GET or POST according to form method specified
+//http_request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//http_request.setRequestHeader("Content-length", parameters.length);
+//http_request.setRequestHeader("Connection", "close");
+http_request.onreadystatechange = function(){
+	if (http_request.readyState == 4) {
+		var returnVal = JSON.parse(http_request.responseText);
+		for(var i=0; i<=2; i++){
+			if(returnVal[i].flag === 1){
+				window.plugin.notification.local.add({
+				  date        : delay_20sec,
+				  title       : returnVal[i].title, 
+				  message     : returnVal[i].text,
+				  repeat      : "daily",
+				//  sound       : 'android.resource://' + package_name + '/raw/beep',
+				  badge       : 0,
+				  id          : (i+600),
+				  foreground  : function(notificationId){
+									alert("Foreground Notification");
+								},
+				  background  : function(notificationId){
+									alert("Background Notification");
+								}           
+				});
+			}
+		}
+	}
+}
+http_request.send(null);
+*/
