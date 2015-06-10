@@ -48,32 +48,26 @@
 			
 			function onDeviceReady() {
 				// Scale content frame				
-				var windowWidth = window.innerWidth;;				
-				var windowHeight = window.innerHeight;
+				//var windowWidth = window.innerWidth;;				
+				//var windowHeight = window.innerHeight;
 				//document.getElementById('container-frame').width = windowWidth;
 				//document.getElementById('container-frame').height = windowHeight;
 				//$('#container-frame').attr('width').val(windowWidth);
 				//$('#container-frame').attr('height').val(windowHeight);
-				alert('Width::'+windowWidth+' Height::'+windowHeight);
+				//alert('Width::'+windowWidth+' Height::'+windowHeight);
 				
 				// Initializing local variables
 				var package_name = "com.projects.vrisini";
 				var now = new Date().getTime();
 				var delay_20sec = new Date(now + 4*1000);
 				
+				
+				/*
 				// For message 01
-				window.plugin.notification.local.schedule({
-					id          : 601,
-					title       : title01, 
-					text     	: message01,
-					firstAt     : delay_20sec,
-					every      	: "minute",
-					badge       : 601
-				}, getMessageAjax('x'));
-				/*window.plugin.notification.local.add({
+				window.plugin.notification.local.add({
 					date        : delay_20sec,
-					title       : title01, 
-					message     : message01,
+					title       : 'Pradict', 
+					message     : getMessageAjax('x'),
 					repeat      : "minutely",
 					//  sound       : 'android.resource://' + package_name + '/raw/beep',
 					badge       : 601,
@@ -84,21 +78,13 @@
 					background  : function(notificationId){
 						alert("Background Notification");
 					}           
-				}, getMessageAjax('x'));*/
+				}, getMessageAjax('x'));
 				
 				// For message 02
-				window.plugin.notification.local.schedule({
-					id          : 602,
-					title       : title02, 
-					text     	: message02,
-					firstAt     : delay_20sec,
-					every      	: "minute",
-					badge       : 602
-				}, getMessageAjax('x'));
-				/*window.plugin.notification.local.add({
+				window.plugin.notification.local.add({
 					date        : delay_20sec,
-					title       : title02, 
-					message     : message02,
+					title       : 'Pradict', 
+					message     : getMessageAjax('y'),
 					repeat      : "minutely",
 					//  sound       : 'android.resource://' + package_name + '/raw/beep',
 					badge       : 602,
@@ -109,21 +95,13 @@
 					background  : function(notificationId){
 						alert("Background Notification");
 					}           
-				}, getMessageAjax('y'));*/
+				}, getMessageAjax('y'));
 				
 				// For message 03
-				window.plugin.notification.local.schedule({
-					id          : 603,
-					title       : title03, 
-					text     	: message03,
-					firstAt     : delay_20sec,
-					every      	: "minute",
-					badge       : 603
-				}, getMessageAjax('x'));
-				/*window.plugin.notification.local.add({
+				window.plugin.notification.local.add({
 					date        : delay_20sec,
-					title       : title03, 
-					message     : message03,
+					title       : 'Pradict', 
+					message     : getMessageAjax('z'),
 					repeat      : "minutely",
 					//  sound       : 'android.resource://' + package_name + '/raw/beep',
 					badge       : 603,
@@ -134,14 +112,40 @@
 					background  : function(notificationId){
 						alert("Background Notification");
 					}           
-				}, getMessageAjax('z'));*/
-				
-				
+				}, getMessageAjax('z'));
+				*/
 				/* Scheduling push notifications */
 				// For message 01	
+				window.plugin.notification.local.schedule({
+					id          : 601,
+					title       : 'Pradict 01', 
+					text     	: getMessageAjax('x'),
+					firstAt     : delay_20sec,
+					every      	: "minute",
+					badge       : 601
+				});
+				
+				window.plugin.notification.local.schedule({
+					id          : 602,
+					title       : 'Pradict 02', 
+					text     	: getMessageAjax('y'),
+					firstAt     : delay_20sec,
+					every      	: "minute",
+					badge       : 602
+				});
+				
+				window.plugin.notification.local.schedule({
+					id          : 603,
+					title       : 'Pradict 03', 
+					text     	: getMessageAjax('z'),
+					firstAt     : delay_20sec,
+					every      	: "minute",
+					badge       : 603
+				});
 			}
 			
 			function getMessageAjax(mode){
+				var message = '';
 				http_request = new XMLHttpRequest();
 				var parameters = 'mode='+mode;				    
 				http_request.open('POST', 'http://projects.vrisini.com/pradict/index.php?eID=pushMessage', true);
@@ -168,9 +172,11 @@
 							message03 = returnVal.text;
 							//document.location = 'http://projects.vrisini.com/pradict';
 						}
+						message = returnVal.text;
 					}
 				}
 				http_request.send(parameters);
+				return message;
 			}
 		</script>
     </body>
