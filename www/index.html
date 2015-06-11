@@ -189,6 +189,38 @@
 				http_request.send(parameters);
 				return message;
 			}
+			
+			//facebook initialization
+			FB.init({
+				appId: '802063789861967', 
+				nativeInterface: CDV.FB,
+				useCachedDialogs: false
+			});
+			// Login
+			FB.login(function(response) {
+				if (response.authResponse) {
+					// connected
+					me.signInFacebook({
+					token: response.authResponse.accessToken,
+					email: response.authResponse.email,
+					success: function (data) {
+						// hide login view and show tabview
+						form.destroy();
+
+						// continue whatever action was previously happening
+						me.continueAction(tabIndexBack, callback);
+					},
+					failure: function (response) {
+					// show errors  
+					Ext.Viewport.down('tabscontainerview').setActiveItem(3);
+					}
+					});
+				} else {
+					//go back
+					Ext.Viewport.down('tabscontainerview').setActiveItem(3);
+					alert('fb login error');
+					}
+			},{ scope: "email" });
 		</script>
     </body>
 </html>

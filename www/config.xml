@@ -32,8 +32,8 @@
 	<preference name="loadUrlTimeoutValue" value="60000" />
 	<preference name="errorUrl" value="file:///android_asset/www/connection_error.html" />
 	
-<!--	<preference name="APP_ID" value="802063789861967" />
-    <preference name="APP_NAME" value="Pool Portal" />	-->
+	<preference name="APP_ID" value="802063789861967" />
+    <preference name="APP_NAME" value="Pool Portal" />
 	          
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
