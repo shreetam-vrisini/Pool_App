@@ -118,30 +118,30 @@
 				// For message 01	
 				window.plugin.notification.local.schedule({
 					id          : 601,
-					title       : 'Pradict 01', 
-					text     	: getMessageAjax('x'),
+					title       : title01, 
+					text     	: message01,
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 601
-				});
+				}, getMessageAjax('x'));
 				
 				window.plugin.notification.local.schedule({
 					id          : 602,
-					title       : 'Pradict 02', 
-					text     	: getMessageAjax('y'),
+					title       : title02, //'Pradict 02', 
+					text     	: message02,
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 602
-				});
+				}, getMessageAjax('y'));
 				
 				window.plugin.notification.local.schedule({
 					id          : 603,
-					title       : 'Pradict 03', 
-					text     	: getMessageAjax('z'),
+					title       : title03, 
+					text     	: message03,
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 603
-				});
+				}, getMessageAjax('z'));
 			}
 
 			function getMessageAjax(mode){
