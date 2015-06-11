@@ -55,7 +55,7 @@
     <gap:plugin name="org.apache.cordova.vibration" />
     
     <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
-    <gap:plugin name="phonegap-background" />
+    <gap:plugin name="com.badrit.BackgroundJS" />
     
     <icon src="icon.png" />
          
