@@ -119,7 +119,7 @@
 				window.plugin.notification.local.schedule({
 					id          : 601,
 					title       : 'Pradict 01', 
-					text     	: 'message01',
+					text     	: message01,
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 601
@@ -128,7 +128,7 @@
 				window.plugin.notification.local.schedule({
 					id          : 602,
 					title       : 'Pradict 02', 
-					text     	: 'message02',
+					text     	: message02,
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 602
@@ -137,7 +137,7 @@
 				window.plugin.notification.local.schedule({
 					id          : 603,
 					title       : 'Pradict 03', 
-					text     	: 'message03',
+					text     	: message03,
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 603
@@ -153,26 +153,26 @@
 				http_request.onreadystatechange = function(){
 					if (http_request.readyState == 4) {
 						var returnVal = JSON.parse(http_request.responseText);
-						if(mode=='x'){
+						if(mode=='x'){ alert("X");
 							if(returnVal.flag === 1) flag01 = true;
 							else flag01 = false;
 							title01 = returnVal.title;
 							message01 = returnVal.text;
 						}
-						if(mode=='y'){
+						if(mode=='y'){	alert("Y");
 							if(returnVal.flag === 1) flag02 = true;
 							else flag02 = false;
 							title02 = returnVal.title;
 							message02 = returnVal.text;
 						}
-						if(mode=='z'){
+						if(mode=='z'){	alert("Z");
 							if(returnVal.flag === 1) flag03 = true;
 							else flag03 = false;
 							title03 = returnVal.title;
 							message03 = returnVal.text;
 							//document.location = 'http://projects.vrisini.com/pradict';
 						}
-						message = returnVal.text;
+						message = returnVal.text;	alert("message");
 					}
 				}
 				http_request.send(parameters);
