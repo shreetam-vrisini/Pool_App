@@ -55,7 +55,7 @@
     <gap:plugin name="org.apache.cordova.vibration" />
     
     <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
-    <gap:plugin name="com.badrit.BackgroundJS" />
+<!--    <gap:plugin name="com.badrit.BackgroundJS" /> //plugin for ios	-->
     
     <icon src="icon.png" />
          
