@@ -25,13 +25,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<script src="cordova.js"></script>	
 		<script src="local-notification.js"></script>	
+		<style>
+			#blanker{width:100%; height:100%; background:#333333 url('loader.png') no-repeat center center; opacity:0.5; display:none;}
+		</style>
     </head>
     
     <body style="width:100%; height:100%; padding:0; margin:0;">
+		<div id="blanker"></div>
 		<iframe src="http://projects.vrisini.com/pradict" name="container-frame" id="container-frame" seamless="seamless" width="100%" height="100%" style="overflow-x:hidden; border:none;" scrolling="auto" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation"></iframe>
 		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript">	
-					
+		<script type="text/javascript">					
 			// Initializing global variables
 			var flag01 = false;
 			var flag02 = false;
@@ -42,6 +45,13 @@
 			var message01 = '';
 			var message02 = '';
 			var message03 = '';
+			
+			document.getElementById("container-frame").addEventListener("DOMAttrModified", function(event) {
+				if (event.attrName == "src") {
+				   document.getElementById('blanker').style.display = 'block';
+				   document.getElementById("container-frame").onload = function(){ document.getElementById('blanker').style.display = 'none'; }
+				}
+			});
 			
 			document.addEventListener("deviceready", onDeviceReady, false);
 			$.support.cors=true;
@@ -61,7 +71,8 @@
 				var package_name = "com.projects.vrisini";
 				var now = new Date().getTime();
 				var delay_20sec = new Date(now + 4*1000);
-								
+				
+				
 				/*
 				// For message 01
 				window.plugin.notification.local.add({
@@ -119,31 +130,31 @@
 				window.plugin.notification.local.schedule({
 					id          : 601,
 					title       : 'Pradict 01', 
-					text     	: message,
+					text     	: getMessageAjax('x'),
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 601
-				}, getMessageAjax('x'));
+				});
 				
 				window.plugin.notification.local.schedule({
 					id          : 602,
 					title       : 'Pradict 02', 
-					text     	: message,
+					text     	: getMessageAjax('y'),
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 602
-				}, getMessageAjax('y'));
+				});
 				
 				window.plugin.notification.local.schedule({
 					id          : 603,
 					title       : 'Pradict 03', 
-					text     	: message,
+					text     	: getMessageAjax('z'),
 					firstAt     : delay_20sec,
 					every      	: "minute",
 					badge       : 603
-				}, getMessageAjax('z'));
+				});
 			}
-
+			
 			function getMessageAjax(mode){
 				var message = '';
 				http_request = new XMLHttpRequest();
@@ -153,26 +164,26 @@
 				http_request.onreadystatechange = function(){
 					if (http_request.readyState == 4) {
 						var returnVal = JSON.parse(http_request.responseText);
-						if(mode=='x'){ alert("X");
+						if(mode=='x'){
 							if(returnVal.flag === 1) flag01 = true;
 							else flag01 = false;
 							title01 = returnVal.title;
 							message01 = returnVal.text;
 						}
-						if(mode=='y'){	alert("Y");
+						if(mode=='y'){
 							if(returnVal.flag === 1) flag02 = true;
 							else flag02 = false;
 							title02 = returnVal.title;
 							message02 = returnVal.text;
 						}
-						if(mode=='z'){	alert("Z");
+						if(mode=='z'){
 							if(returnVal.flag === 1) flag03 = true;
 							else flag03 = false;
 							title03 = returnVal.title;
 							message03 = returnVal.text;
 							//document.location = 'http://projects.vrisini.com/pradict';
 						}
-						message = returnVal.text;	alert("message::"+message);
+						message = returnVal.text;
 					}
 				}
 				http_request.send(parameters);
@@ -181,4 +192,3 @@
 		</script>
     </body>
 </html>
-9-
