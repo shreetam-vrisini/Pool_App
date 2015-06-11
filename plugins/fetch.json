@@ -5,19 +5,6 @@
             "url": "https://github.com/katzer/cordova-plugin-local-notifications.git",
             "subdir": "."
         }
-    },
-    "com.phonegap.plugins.facebookconnect": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
-            "subdir": "."
-        }
-    },
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-whitelist.git",
-            "subdir": "."
-        }
-    },
+    }
+   
 }
