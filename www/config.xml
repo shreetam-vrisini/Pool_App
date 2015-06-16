@@ -54,8 +54,8 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     
-    <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
-<!--    <gap:plugin name="com.badrit.BackgroundJS" /> //plugin for ios	-->
+    <gap:plugin name="vrisini.cordova.plugin.schedule" />
+    <gap:plugin name="org.transistorsoft.cordova.plugin.background.fetch" />
     
     <icon src="icon.png" />
          
@@ -91,15 +91,6 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
       
-	<access origin="http://projects.vrisini.com/*" />
-    <access origin="https://connect.facebook.net/*" />
-    <access origin="https://static.ak.facebook.com/*" />
-    <access origin="https://fbstatic-a.akamaihd.net/*"  />
-    <access origin="https://m.facebook.com/*" />
-	<access origin="https://graph.facebook.com/*" />
-	<access origin="https://api.facebook.com/*" />
-	<access origin="https://fbcdn.net/*" />
-	<access origin="https://*.akamaihd.net/*" />
 	<access origin="*" />	
 	<allow-navigation href="*" />	
 	<allow-intent href="*" />

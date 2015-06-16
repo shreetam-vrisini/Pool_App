@@ -1,18 +1,9 @@
 {
-    "de.appplant.cordova.plugin.local-notification": {
+    "vrisini.cordova.plugin.schedule": {
         "source": {
             "type": "git",
-            "url": "https://github.com/katzer/cordova-plugin-local-notifications.git",
+            "url": "https://github.com/anupam-chatterjee/cordova-plugin-schedule.git",
             "subdir": "."
         }
-    },
-    "com.badrit.BackgroundJS": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/hazemhagrass/BackgroundJS",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
     }
 }
