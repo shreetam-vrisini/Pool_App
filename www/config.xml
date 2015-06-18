@@ -54,7 +54,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     
-    <gap:plugin name="vrisini.cordova.plugin.schedule" />
+    <gap:plugin name="cordova-plugin-schedule" source="npm" />
     <gap:plugin name="org.transistorsoft.cordova.plugin.background.fetch" />
     
     <icon src="icon.png" />

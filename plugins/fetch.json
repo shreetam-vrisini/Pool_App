@@ -1,9 +1,9 @@
 {
-    "vrisini.cordova.plugin.schedule": {
+    "cordova-plugin-whitelist": {
         "source": {
             "type": "git",
-            "url": "https://github.com/anupam-chatterjee/cordova-plugin-schedule.git",
+            "url": "https://github.com/apache/cordova-plugin-whitelist.git",
             "subdir": "."
         }
-    }
+    },
 }
